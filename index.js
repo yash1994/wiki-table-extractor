@@ -3,7 +3,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 
-module.exports = function ExtractTablesP(url, dupcols, duprows) {
+module.exports = function ExtractTables(url, dupcols, duprows) {
     if (dupcols === undefined) dupcols=false;
     if (duprows === undefined) duprows=false;
     return new Promise(function (resolve, reject){

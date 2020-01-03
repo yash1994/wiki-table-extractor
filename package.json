@@ -4,7 +4,7 @@
   "description": "port of cheerio-tableparser to extract tables from wikipedia page.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/yash1994/wiki-table-extractor#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "mocha": "^6.2.2",
     "request": "^2.88.0"
   }
 }
