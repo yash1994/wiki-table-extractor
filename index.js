@@ -3,11 +3,12 @@
 var request = require('request');
 var cheerio = require('cheerio');
 
-function ExtractTables(url, dupcols, duprows) {
+module.exports = function ExtractTablesP(url, dupcols, duprows) {
     if (dupcols === undefined) dupcols=false;
     if (duprows === undefined) duprows=false;
-    request(url, function (error, response, body){
-        if (!error){
+    return new Promise(function (resolve, reject){
+        request(url, function (error, response, body){
+            if(error) reject(error)
             var $ = cheerio.load(body)
             var tables = []
             $(".wikitable").each(function (table_idx, table){
@@ -54,13 +55,7 @@ function ExtractTables(url, dupcols, duprows) {
                 }, [])
                 tables.push(FormattedTable)
             });
-            Promise.all(tables).then(function (){
-                console.log(tables)
-            })
-        }
-        else{
-            console.log(error)
-        }
+            resolve(tables)
+        });
     });
 }
-console.log(ExtractTables("https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"))
