@@ -23,7 +23,7 @@
   "homepage": "https://github.com/yash1994/wiki-table-extractor#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "mocha": "^6.2.2",
+    "mocha": "^6.2.3",
     "request": "^2.88.0"
   }
 }
